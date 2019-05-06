@@ -61,6 +61,20 @@ public class EstoqueBean implements IEstoque {
 		throw new Exception("Produto já adicionado no estoque !!");
 
 	}
+	
+	public Produto getProdutoPorID(String produtoID) {
+	
+			Produto encontrado = null;
+		
+			for (Produto produto : this.produtos) {
+				if(produto.getCodigo().equals(produtoID)) {
+					encontrado = produto;
+					break;
+				}
+			}
+		
+		return encontrado;
+	}
 
 
 }

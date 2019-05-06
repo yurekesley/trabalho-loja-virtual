@@ -12,4 +12,6 @@ public interface IEstoque {
 	public void removeDoEstoque(Produto produto) throws Exception;
 
 	public void adicionarNoEstoque(Produto produto) throws Exception;
+	
+	public Produto getProdutoPorID(String produtoID);
 }
