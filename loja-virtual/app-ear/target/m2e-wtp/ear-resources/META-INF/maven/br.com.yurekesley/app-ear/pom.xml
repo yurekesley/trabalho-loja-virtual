@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>br.com.yurekesley</groupId>
+		<artifactId>loja-virtual</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>app-ear</artifactId>
+	<name>app-ear</name>
+	<packaging>ear</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>br.com.yurekesley</groupId>
+			<artifactId>app-ejb</artifactId>
+			<version>1.0-SNAPSHOT</version>
+			<type>ejb</type>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>br.com.yurekesley</groupId>
+			<artifactId>app-web</artifactId>
+			<version>1.0-SNAPSHOT</version>
+			<type>war</type>
+			<scope>runtime</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>3.0.1</version>
+				<configuration>
+					<modules>
+						<ejbModule>
+							<groupId>br.com.yurekesley</groupId>
+							<artifactId>app-ejb</artifactId>
+							<uri>/app-ejb.jar</uri>
+						</ejbModule>
+						<webModule>
+							<groupId>br.com.yurekesley</groupId>
+							<artifactId>app-web</artifactId>
+							<uri>/loja.war</uri>
+							<contextRoot>loja</contextRoot>
+						</webModule>
+					</modules>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<release>11</release>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
