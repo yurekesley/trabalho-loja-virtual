@@ -3,7 +3,8 @@ package br.com.yurekesley.appweb;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.ejb.EJB;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,13 +15,14 @@ import br.com.yurekesley.appejb.beans.ICarrinho;
 import br.com.yurekesley.appejb.beans.IEstoque;
 import br.com.yurekesley.appejb.model.Produto;
 
+@SessionScoped
 @WebServlet("/compras")
 public class ComprasServlet extends HttpServlet {
 
-	@EJB
+	@Inject
 	private ICarrinho carrinho;
 	
-	@EJB
+	@Inject
 	private IEstoque estoque;
 	
 	private static final long serialVersionUID = 1L;

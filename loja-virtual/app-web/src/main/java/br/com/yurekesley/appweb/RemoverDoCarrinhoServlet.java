@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.yurekesley.appejb.beans.ICarrinho;
 import br.com.yurekesley.appejb.beans.IEstoque;
 import br.com.yurekesley.appejb.model.Produto;
+
+@WebServlet("/remover-do-carrinho")
 
 public class RemoverDoCarrinhoServlet extends HttpServlet {
 
