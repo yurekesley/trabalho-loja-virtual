@@ -19,6 +19,6 @@ WORKDIR /opt/wildfly/standalone/deployments/app-web/
 
 ARG DEPENDENCY=/workspace
 
-COPY --from=build ${DEPENDENCY}/ear/target/ear-1.0.ear .
+COPY --from=build ${DEPENDENCY}/app-ear/target/app-ear-1.0-SNAPSHOT.ear .
 
 CMD ["/opt/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
